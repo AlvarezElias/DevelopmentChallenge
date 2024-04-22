@@ -44,12 +44,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\Circulo.cs" />
+    <Compile Include="Classes\Cuadrado.cs" />
     <Compile Include="Classes\FormaGeometrica.cs" />
+    <Compile Include="Classes\Trapecio.cs" />
+    <Compile Include="Classes\TrianguloEquilatero.cs" />
+    <Compile Include="Enums\EnumIdioma.cs" />
+    <Compile Include="Interfaces\IFormaGeometrica.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -11,6 +11,7 @@
  * Una vez finalizado, hay que subir el código a un repo GIT y ofrecernos la URL para que podamos utilizar la nueva versión :).
  */
 
+using DevelopmentChallenge.Data.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,6 +19,7 @@ using System.Text;
 
 namespace DevelopmentChallenge.Data.Classes
 {
+
     public class FormaGeometrica
     {
         #region Formas
