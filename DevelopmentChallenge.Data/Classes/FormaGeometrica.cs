@@ -22,23 +22,6 @@ namespace DevelopmentChallenge.Data.Classes
 
     public class FormaGeometrica
     {
-        #region Formas
-
-        /* //deprecated
-        public const int Cuadrado = 1;
-        public const int TrianguloEquilatero = 2;
-        public const int Circulo = 3;
-        public const int Trapecio = 4;
-        */
-        #endregion
-
-        #region Idiomas
-
-        public const int Castellano = 1;
-        public const int Ingles = 2;
-
-        #endregion
-
         private readonly decimal _lado;
 
         public decimal Lado { get { return _lado; } }
@@ -76,14 +59,17 @@ namespace DevelopmentChallenge.Data.Classes
                 var numeroCuadrados = 0;
                 var numeroCirculos = 0;
                 var numeroTriangulos = 0;
+                var numeroTrapecios = 0;
 
                 var areaCuadrados = 0m;
                 var areaCirculos = 0m;
                 var areaTriangulos = 0m;
+                var areaTrapecios = 0m;
 
                 var perimetroCuadrados = 0m;
                 var perimetroCirculos = 0m;
                 var perimetroTriangulos = 0m;
+                var perimetroTrapecios = 0m;
 
                 for (var i = 0; i < formas.Count; i++)
                 {
@@ -93,32 +79,43 @@ namespace DevelopmentChallenge.Data.Classes
                         areaCuadrados += formas[i].CalcularArea();
                         perimetroCuadrados += formas[i].CalcularPerimetro();
                     }
-                    if (formas[i] is Circulo)
+                    else if (formas[i] is Circulo)
                     {
                         numeroCirculos++;
                         areaCirculos += formas[i].CalcularArea();
                         perimetroCirculos += formas[i].CalcularPerimetro();
                     }
-                    if (formas[i] is TrianguloEquilatero)
+                    else if (formas[i] is TrianguloEquilatero)
                     {
                         numeroTriangulos++;
                         areaTriangulos += formas[i].CalcularArea();
                         perimetroTriangulos += formas[i].CalcularPerimetro();
                     }
+                    else if (formas[i] is Trapecio)
+                    {
+                        numeroTrapecios++;
+                        areaTrapecios += formas[i].CalcularArea();
+                        perimetroTrapecios += formas[i].CalcularPerimetro();
+                    }
                 }
                 
                 if(numeroCuadrados > 0)
                     sb.Append(Cuadrado.ObtenerLinea(numeroCuadrados, areaCuadrados, perimetroCuadrados, idioma));
+                
                 if(numeroCirculos > 0)
                     sb.Append(Circulo.ObtenerLinea(numeroCirculos, areaCirculos, perimetroCirculos, idioma));
+                
                 if(numeroTriangulos > 0)
                     sb.Append(TrianguloEquilatero.ObtenerLinea(numeroTriangulos, areaTriangulos, perimetroTriangulos, idioma));
 
+                if (numeroTrapecios > 0)
+                    sb.Append(Trapecio.ObtenerLinea(numeroTrapecios, areaTrapecios, perimetroTrapecios, idioma));
+
                 // FOOTER
                 sb.Append("TOTAL:<br/>");
-                sb.Append(numeroCuadrados + numeroCirculos + numeroTriangulos + " " + TraducirForma(idioma) + " ");
-                sb.Append(TraducirPerimetro(idioma) + " " + (perimetroCuadrados + perimetroTriangulos + perimetroCirculos).ToString("#.##") + " ");
-                sb.Append("Area " + (areaCuadrados + areaCirculos + areaTriangulos).ToString("#.##"));
+                sb.Append(numeroCuadrados + numeroCirculos + numeroTriangulos + numeroTrapecios + " " + TraducirForma(idioma) + " ");
+                sb.Append(TraducirPerimetro(idioma) + " " + (perimetroCuadrados + perimetroTriangulos + perimetroCirculos + perimetroTrapecios).ToString("#.##") + " ");
+                sb.Append("Area " + (areaCuadrados + areaCirculos + areaTriangulos + areaTrapecios).ToString("#.##"));
             }
 
             return sb.ToString();

@@ -53,14 +53,23 @@ namespace DevelopmentChallenge.Data.Tests
         [TestCase]
         public void TestResumenListaConUnTrianguloEnItaliano()
         {
-            var circulos = new List<FormaGeometrica> { new TrianguloEquilatero(8) };
+            var triangulos = new List<FormaGeometrica> { new TrianguloEquilatero(8) };
 
-            var resumen = FormaGeometrica.Imprimir(circulos, EnumIdioma.Italiano);
+            var resumen = FormaGeometrica.Imprimir(triangulos, EnumIdioma.Italiano);
 
             Assert.AreEqual("<h1>Reporté de Formas</h1>1 Triangolo | Area 27,71 | Perimetro 24 <br/>TOTAL:<br/>1 forme Perimetro 24 Area 27,71", resumen);
         }
-
         
+        [TestCase]
+        public void TestResumenListaConUnTrapecioEnCastellano()
+        {
+            var trapecios = new List<FormaGeometrica> { new Trapecio(3,5) };
+
+            var resumen = FormaGeometrica.Imprimir(trapecios, EnumIdioma.Castellano);
+
+            Assert.AreEqual("<h1>Reporte de Formas</h1>1 Trapecio | Area 12,5 | Perimetro 15 <br/>TOTAL:<br/>1 formas Perimetro 15 Area 12,5", resumen);
+        }
+
         [TestCase]
         public void TestResumenListaConMasCuadrados()
         {
@@ -87,13 +96,15 @@ namespace DevelopmentChallenge.Data.Tests
                 new Cuadrado(2),
                 new TrianguloEquilatero(9),
                 new Circulo(2.75m),
-                new TrianguloEquilatero(4.2m)
+                new TrianguloEquilatero(4.2m),
+                new Trapecio(2,6),
+                new Trapecio(2,4)
             };
 
             var resumen = FormaGeometrica.Imprimir(formas, EnumIdioma.Ingles);
 
             Assert.AreEqual(
-                "<h1>Shapes report</h1>2 Squares | Area 29 | Perimeter 28 <br/>2 Circles | Area 13,01 | Perimeter 18,06 <br/>3 Triangles | Area 49,64 | Perimeter 51,6 <br/>TOTAL:<br/>7 shapes Perimeter 97,66 Area 91,65",
+                "<h1>Shapes report</h1>2 Squares | Area 29 | Perimeter 28 <br/>2 Circles | Area 13,01 | Perimeter 18,06 <br/>3 Triangles | Area 49,64 | Perimeter 51,6 <br/>2 trapezoids | Area 15 | Perimeter 26 <br/>TOTAL:<br/>9 shapes Perimeter 123,66 Area 106,65",
                 resumen);
         }
 
@@ -108,13 +119,15 @@ namespace DevelopmentChallenge.Data.Tests
                 new Cuadrado(2),
                 new TrianguloEquilatero(9),
                 new Circulo(2.75m),
-                new TrianguloEquilatero(4.2m)
+                new TrianguloEquilatero(4.2m),
+                new Trapecio(2,6),
+                new Trapecio(2,4)
             };
 
             var resumen = FormaGeometrica.Imprimir(formas, EnumIdioma.Castellano);
 
             Assert.AreEqual(
-                "<h1>Reporte de Formas</h1>2 Cuadrados | Area 29 | Perimetro 28 <br/>2 Círculos | Area 13,01 | Perimetro 18,06 <br/>3 Triángulos | Area 49,64 | Perimetro 51,6 <br/>TOTAL:<br/>7 formas Perimetro 97,66 Area 91,65",
+                "<h1>Reporte de Formas</h1>2 Cuadrados | Area 29 | Perimetro 28 <br/>2 Círculos | Area 13,01 | Perimetro 18,06 <br/>3 Triángulos | Area 49,64 | Perimetro 51,6 <br/>2 Trapecios | Area 15 | Perimetro 26 <br/>TOTAL:<br/>9 formas Perimetro 123,66 Area 106,65",
                 resumen);
         }
     }
