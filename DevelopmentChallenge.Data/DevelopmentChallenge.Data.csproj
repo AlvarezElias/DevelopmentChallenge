@@ -50,7 +50,6 @@
     <Compile Include="Classes\Trapecio.cs" />
     <Compile Include="Classes\TrianguloEquilatero.cs" />
     <Compile Include="Enums\EnumIdioma.cs" />
-    <Compile Include="Interfaces\IFormaGeometrica.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
