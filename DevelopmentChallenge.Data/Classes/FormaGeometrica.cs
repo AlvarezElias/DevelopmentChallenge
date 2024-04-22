@@ -108,10 +108,11 @@ namespace DevelopmentChallenge.Data.Classes
                 }
                 
                 if(numeroCuadrados > 0)
-                sb.Append(Cuadrado.ObtenerLinea(numeroCuadrados, areaCuadrados, perimetroCuadrados, idioma));
+                    sb.Append(Cuadrado.ObtenerLinea(numeroCuadrados, areaCuadrados, perimetroCuadrados, idioma));
                 if(numeroCirculos > 0)
                     sb.Append(Circulo.ObtenerLinea(numeroCirculos, areaCirculos, perimetroCirculos, idioma));
-                //sb.Append(ObtenerLinea(numeroTriangulos, areaTriangulos, perimetroTriangulos, idioma));
+                if(numeroTriangulos > 0)
+                    sb.Append(TrianguloEquilatero.ObtenerLinea(numeroTriangulos, areaTriangulos, perimetroTriangulos, idioma));
 
                 // FOOTER
                 sb.Append("TOTAL:<br/>");
@@ -123,20 +124,6 @@ namespace DevelopmentChallenge.Data.Classes
             return sb.ToString();
         }
 
-        /*private string ObtenerLinea(int cantidad, decimal area, decimal perimetro, int idioma)
-        {
-            if (cantidad > 0)
-            {
-                if (idioma == Castellano)
-                    return $"{cantidad} {TraducirForma(tipo, cantidad, idioma)} | Area {area:#.##} | Perimetro {perimetro:#.##} <br/>";
-
-                return $"{cantidad} {TraducirForma(tipo, cantidad, idioma)} | Area {area:#.##} | Perimeter {perimetro:#.##} <br/>";
-            }
-
-            return string.Empty;
-        }*/
-
-        
         public static string TraducirPerimetro(EnumIdioma idioma)
         {
             return idioma == EnumIdioma.Castellano ? "Perimetro" :
@@ -151,18 +138,6 @@ namespace DevelopmentChallenge.Data.Classes
                 idioma == EnumIdioma.Ingles ? "shapes" :
                 idioma == EnumIdioma.Italiano ? "forme" : 
                 string.Empty;
-            /*
-            switch (idioma)
-            {
-                case Circulo:
-                    if (idioma == Castellano) return cantidad == 1 ? "Círculo" : "Círculos";
-                    else return cantidad == 1 ? "Circle" : "Circles";
-                case TrianguloEquilatero:
-                    if (idioma == Castellano) return cantidad == 1 ? "Triángulo" : "Triángulos";
-                    else return cantidad == 1 ? "Triangle" : "Triangles";
-            }
-
-            return string.Empty;*/
         }
 
         public virtual decimal CalcularArea()
