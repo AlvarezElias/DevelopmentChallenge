@@ -12,6 +12,7 @@ namespace DevelopmentChallenge.Data.Classes
         public TrianguloEquilatero(decimal ancho) : base(ancho)
         {
         }
+
         public override decimal CalcularArea()
         {
             return ((decimal)Math.Sqrt(3) / 4) * Lado * Lado;
@@ -24,7 +25,7 @@ namespace DevelopmentChallenge.Data.Classes
 
         public static string ObtenerLinea(int cantidad, decimal area, decimal perimetro, EnumIdioma idioma)
         {
-            return $"{cantidad} {ObtenerNombre(cantidad > 1, idioma)} | Area {area:#.##} | Perimetro {perimetro:#.##} <br/>";
+            return $"{cantidad} {ObtenerNombre(cantidad > 1, idioma)} | Area {area:#.##} | {TraducirPerimetro(idioma)} {perimetro:#.##} <br/>";
         }
 
         public static string ObtenerNombre(bool plural, EnumIdioma idioma)

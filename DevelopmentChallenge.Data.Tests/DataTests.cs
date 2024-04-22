@@ -60,37 +60,37 @@ namespace DevelopmentChallenge.Data.Tests
             Assert.AreEqual("<h1>Reporté de Formas</h1>1 Triangolo | Area 27,71 | Perimetro 24 <br/>TOTAL:<br/>1 forme Perimetro 24 Area 27,71", resumen);
         }
 
-        /*
+        
         [TestCase]
         public void TestResumenListaConMasCuadrados()
         {
             var cuadrados = new List<FormaGeometrica>
             {
-                new FormaGeometrica(FormaGeometrica.Cuadrado, 5),
-                new FormaGeometrica(FormaGeometrica.Cuadrado, 1),
-                new FormaGeometrica(FormaGeometrica.Cuadrado, 3)
+                new Cuadrado(5),
+                new Cuadrado(1),
+                new Cuadrado(3)
             };
 
-            var resumen = FormaGeometrica.Imprimir(cuadrados, FormaGeometrica.Ingles);
+            var resumen = FormaGeometrica.Imprimir(cuadrados, EnumIdioma.Ingles);
 
             Assert.AreEqual("<h1>Shapes report</h1>3 Squares | Area 35 | Perimeter 36 <br/>TOTAL:<br/>3 shapes Perimeter 36 Area 35", resumen);
         }
-
+        
         [TestCase]
         public void TestResumenListaConMasTipos()
         {
             var formas = new List<FormaGeometrica>
             {
-                new FormaGeometrica(FormaGeometrica.Cuadrado, 5),
-                new FormaGeometrica(FormaGeometrica.Circulo, 3),
-                new FormaGeometrica(FormaGeometrica.TrianguloEquilatero, 4),
-                new FormaGeometrica(FormaGeometrica.Cuadrado, 2),
-                new FormaGeometrica(FormaGeometrica.TrianguloEquilatero, 9),
-                new FormaGeometrica(FormaGeometrica.Circulo, 2.75m),
-                new FormaGeometrica(FormaGeometrica.TrianguloEquilatero, 4.2m)
+                new Cuadrado(5),
+                new Circulo(3),
+                new TrianguloEquilatero(4),
+                new Cuadrado(2),
+                new TrianguloEquilatero(9),
+                new Circulo(2.75m),
+                new TrianguloEquilatero(4.2m)
             };
 
-            var resumen = FormaGeometrica.Imprimir(formas, FormaGeometrica.Ingles);
+            var resumen = FormaGeometrica.Imprimir(formas, EnumIdioma.Ingles);
 
             Assert.AreEqual(
                 "<h1>Shapes report</h1>2 Squares | Area 29 | Perimeter 28 <br/>2 Circles | Area 13,01 | Perimeter 18,06 <br/>3 Triangles | Area 49,64 | Perimeter 51,6 <br/>TOTAL:<br/>7 shapes Perimeter 97,66 Area 91,65",
@@ -102,21 +102,20 @@ namespace DevelopmentChallenge.Data.Tests
         {
             var formas = new List<FormaGeometrica>
             {
-                new FormaGeometrica(FormaGeometrica.Cuadrado, 5),
-                new FormaGeometrica(FormaGeometrica.Circulo, 3),
-                new FormaGeometrica(FormaGeometrica.TrianguloEquilatero, 4),
-                new FormaGeometrica(FormaGeometrica.Cuadrado, 2),
-                new FormaGeometrica(FormaGeometrica.TrianguloEquilatero, 9),
-                new FormaGeometrica(FormaGeometrica.Circulo, 2.75m),
-                new FormaGeometrica(FormaGeometrica.TrianguloEquilatero, 4.2m)
+                new Cuadrado(5),
+                new Circulo(3),
+                new TrianguloEquilatero(4),
+                new Cuadrado(2),
+                new TrianguloEquilatero(9),
+                new Circulo(2.75m),
+                new TrianguloEquilatero(4.2m)
             };
 
-            var resumen = FormaGeometrica.Imprimir(formas, FormaGeometrica.Castellano);
+            var resumen = FormaGeometrica.Imprimir(formas, EnumIdioma.Castellano);
 
             Assert.AreEqual(
                 "<h1>Reporte de Formas</h1>2 Cuadrados | Area 29 | Perimetro 28 <br/>2 Círculos | Area 13,01 | Perimetro 18,06 <br/>3 Triángulos | Area 49,64 | Perimetro 51,6 <br/>TOTAL:<br/>7 formas Perimetro 97,66 Area 91,65",
                 resumen);
         }
-        */
     }
 }
