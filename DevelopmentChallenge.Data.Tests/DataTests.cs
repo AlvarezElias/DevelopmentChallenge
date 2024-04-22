@@ -39,6 +39,17 @@ namespace DevelopmentChallenge.Data.Tests
 
             Assert.AreEqual("<h1>Reporte de Formas</h1>1 Cuadrado | Area 25 | Perimetro 20 <br/>TOTAL:<br/>1 formas Perimetro 20 Area 25", resumen);
         }
+
+        [TestCase]
+        public void TestResumenListaConUnCirculo()
+        {
+            var circulos = new List<FormaGeometrica> { new Circulo(8) };
+
+            var resumen = FormaGeometrica.Imprimir(circulos, EnumIdioma.Castellano);
+
+            Assert.AreEqual("<h1>Reporte de Formas</h1>1 Círculo | Area 50,27 | Perimetro 25,13 <br/>TOTAL:<br/>1 formas Perimetro 25,13 Area 50,27", resumen);
+        }
+
         /*
         [TestCase]
         public void TestResumenListaConMasCuadrados()

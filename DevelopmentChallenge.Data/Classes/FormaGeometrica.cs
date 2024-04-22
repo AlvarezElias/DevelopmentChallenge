@@ -107,9 +107,10 @@ namespace DevelopmentChallenge.Data.Classes
                     }
                 }
                 
-
+                if(numeroCuadrados > 0)
                 sb.Append(Cuadrado.ObtenerLinea(numeroCuadrados, areaCuadrados, perimetroCuadrados, idioma));
-                //sb.Append(ObtenerLinea(numeroCirculos, areaCirculos, perimetroCirculos, idioma));
+                if(numeroCirculos > 0)
+                    sb.Append(Circulo.ObtenerLinea(numeroCirculos, areaCirculos, perimetroCirculos, idioma));
                 //sb.Append(ObtenerLinea(numeroTriangulos, areaTriangulos, perimetroTriangulos, idioma));
 
                 // FOOTER
@@ -166,29 +167,12 @@ namespace DevelopmentChallenge.Data.Classes
 
         public virtual decimal CalcularArea()
         {
-
             throw new ArgumentOutOfRangeException(@"Forma desconocida");
-            /*switch (Tipo)
-            {
-                case Cuadrado: return _lado * _lado;
-                case Circulo: return (decimal)Math.PI * (_lado / 2) * (_lado / 2);
-                case TrianguloEquilatero: return ((decimal)Math.Sqrt(3) / 4) * _lado * _lado;
-                default:
-                    throw new ArgumentOutOfRangeException(@"Forma desconocida");
-            }*/
         }
 
         public virtual decimal CalcularPerimetro()
         {
             throw new ArgumentOutOfRangeException(@"Forma desconocida");
-            /*switch (Tipo)
-            {
-                case Cuadrado: return _lado * 4;
-                case Circulo: return (decimal)Math.PI * _lado;
-                case TrianguloEquilatero: return _lado * 3;
-                default:
-                    throw new ArgumentOutOfRangeException(@"Forma desconocida");
-            }*/
         }
     }
 }

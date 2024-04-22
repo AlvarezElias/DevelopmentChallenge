@@ -39,7 +39,7 @@ namespace DevelopmentChallenge.Data.Classes
                     return plural ? "Squares" : "Square";
 
                 case EnumIdioma.Italiano:
-                    return plural ? "piazze" : "piazza";
+                    return plural ? "Piazze" : "Piazza";
             }
             return string.Empty;
         }
